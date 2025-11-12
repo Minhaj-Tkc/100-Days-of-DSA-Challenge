@@ -8,3 +8,5 @@ class Solution:
             answer.append(abs(left - right))
             left += num
         return answer
+
+
