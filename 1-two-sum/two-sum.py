@@ -3,9 +3,9 @@ class Solution:
         seen = {}
 
         for i,num in enumerate(nums):
-            compliment = target - num
+            complement = target - num
 
-            if compliment in seen:
-                return [i, seen[compliment]]
+            if complement in seen:
+                return [i, seen[complement]]
             
             seen[num] = i
