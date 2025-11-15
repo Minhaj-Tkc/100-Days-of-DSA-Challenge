@@ -4,9 +4,9 @@ class Solution:
         Do not return anything, modify arr in-place instead.
         """
         n = len(arr)
-        zeros = arr.count(0)   # Count how many zeros we need to duplicate
+        zeros = arr.count(0)
         i = n - 1
-        j = n + zeros - 1      # Virtual end index after duplicating
+        j = n + zeros - 1
 
         while i < j:
             if arr[i] != 0:
@@ -16,9 +16,9 @@ class Solution:
                 if j < n:
                     arr[j] = 0
                 j -= 1
+
                 if j < n:
                     arr[j] = 0
-            i -= 1
+            
             j -= 1
-
-
+            i -= 1
