@@ -1,18 +1,17 @@
 class Solution:
     def maximumLengthSubstring(self, s: str) -> int:
-        from collections import defaultdict
+        count = {}
+        l = 0
+        max_l = 0
 
-        count = defaultdict(int)
-        left = 0
-        max_len = 0
+        for r in range(len(s)):
 
-        for right in range(len(s)):
-            count[s[right]] += 1
+            count[s[r]] = count.get(s[r], 0) + 1
 
-            while count[s[right]] > 2:
-                count[s[left]] -= 1
-                left += 1
+            while count[s[r]] > 2:
+                count[s[l]] -= 1
+                l += 1
 
-            max_len = max(max_len, right - left + 1)
-
-        return max_len
+            max_l = max(max_l, r-l + 1)
+        
+        return max_l
