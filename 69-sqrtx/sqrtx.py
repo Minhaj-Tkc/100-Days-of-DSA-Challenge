@@ -1,26 +1,11 @@
 class Solution:
     def mySqrt(self, x: int) -> int:
-
         if x < 2:
             return x
 
-        left = 1
-        right = x//2
+        r = x  # initial guess
 
-        answer = 1
+        while r * r > x:
+            r = (r + x // r) // 2   # Newton update step
 
-        while left <= right:
-
-            mid = (left+right) // 2
-
-            sq = mid * mid
-            
-            if sq == x:
-                return mid
-            elif sq < x:
-                answer = mid
-                left = mid + 1
-            else:
-                right = mid - 1
-        
-        return answer
+        return r
