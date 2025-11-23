@@ -1,18 +1,18 @@
 class Solution:
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        ans = []
+        stack = []
+        next_greater = {}
 
-        for x in nums1:
-            # find index of x in nums2
-            index = nums2.index(x)
+        # Traverse nums2 from left to right
+        for num in nums2:
+            # If current num > top of stack → it is the next greater element
+            while stack and num > stack[-1]:
+                next_greater[stack.pop()] = num
+            stack.append(num)
 
-            # look to the right for the next greater element
-            next_greater = -1
-            for j in range(index + 1, len(nums2)):
-                if nums2[j] > x:
-                    next_greater = nums2[j]
-                    break
+        # Elements left in stack have no next greater element
+        while stack:
+            next_greater[stack.pop()] = -1
 
-            ans.append(next_greater)
-
-        return ans
+        # Prepare answer for nums1
+        return [next_greater[num] for num in nums1]
