@@ -3,9 +3,24 @@ class Solution:
         if x < 2:
             return x
 
-        r = x  # initial guess
+        left = 1
+        right = x//2
 
-        while r * r > x:
-            r = (r + x // r) // 2   # Newton update step
+        answer = 0
 
-        return r
+        while left <= right:
+
+            mid = (left+right) // 2
+
+            sq = mid * mid
+            
+            if sq == x:
+                return mid
+            elif sq < x:
+                answer = mid
+                left = mid + 1
+            else:
+                right = mid - 1
+        
+        return answer
+
