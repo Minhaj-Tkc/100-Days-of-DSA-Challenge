@@ -9,7 +9,7 @@ class Solution:
         
         return sumdigit
 
-
+# ⭐ Fastest and cleanest
 # class Solution:
 #     def alternateDigitSum(self, n: int) -> int:
 #         s = str(n)
