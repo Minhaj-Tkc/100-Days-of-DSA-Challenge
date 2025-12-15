@@ -9,3 +9,4 @@ class Solution:
                 return [i, seen[complement]]
             
             seen[num] = i
+
